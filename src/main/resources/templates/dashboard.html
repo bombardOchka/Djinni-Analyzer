@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Djinni Analyzer Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 32px; background: #f7f8fa; color: #1f2937; }
+        h1 { margin-bottom: 8px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .card { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+        .muted { color: #6b7280; }
+    </style>
+</head>
+<body>
+<h1>Djinni Vacancy Analyzer</h1>
+<p class="muted">Середній профіль вимог для Java та Python вакансій.</p>
+
+<div class="grid">
+    <div class="card">
+        <h2>Java</h2>
+        <p>Вакансій: <strong th:text="${javaProfile.totalVacancies}">0</strong></p>
+        <p>Середній досвід: <strong th:text="${javaProfile.averageExperienceYears}">0</strong></p>
+        <table>
+            <thead>
+            <tr><th>Навичка</th><th>Кількість</th><th>Частка, %</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="skill : ${javaProfile.topSkills}">
+                <td th:text="${skill.skill}">Skill</td>
+                <td th:text="${skill.vacancyCount}">0</td>
+                <td th:text="${skill.sharePercent}">0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Python</h2>
+        <p>Вакансій: <strong th:text="${pythonProfile.totalVacancies}">0</strong></p>
+        <p>Середній досвід: <strong th:text="${pythonProfile.averageExperienceYears}">0</strong></p>
+        <table>
+            <thead>
+            <tr><th>Навичка</th><th>Кількість</th><th>Частка, %</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="skill : ${pythonProfile.topSkills}">
+                <td th:text="${skill.skill}">Skill</td>
+                <td th:text="${skill.vacancyCount}">0</td>
+                <td th:text="${skill.sharePercent}">0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
