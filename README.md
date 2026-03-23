@@ -115,13 +115,6 @@ telegram:
 2. Парсер не залежить від одного CSS selector-а: є fallback extraction для title, company, intro, requirements, employment type, experience.
 3. Модуль агрегації будує середній профіль за частотою навичок і середнім досвідом.
 
-## Що варто доробити
-
-1. Винести словник навичок у конфіг / окрему таблицю.
-2. Додати rate limit, retry policy та backoff.
-3. Додати логування і unit/integration tests для HTML extraction.
-4. Додати планувальник автоматичного оновлення.
-5. Додати окремий сервіс для адаптації парсера при зміні HTML-структури.
 
 ## Важливе зауваження
 
